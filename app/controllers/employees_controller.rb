@@ -9,7 +9,6 @@ class EmployeesController < ApplicationController
 
   def edit
   end
-
   private
   def set_employee
     @employee=Employee.find(params[:id])
