@@ -1,22 +1,24 @@
-	<div>
-		<div>
-			<h1 >Emoloyess</h1>
+<div class="m-5">
+		<div class="table-responsive bg-white rounded border border-success p-2">
+		<div >
+			<h1 class="text-center">Emoloyess</h1>
 		</div>
 
 		<div>
-			<table>
+			<table class="table table-striped">
 				<tr>
 					<th>ID</th>
 					<th>Employees Name</th>
+					<th>Actions</th>
 				</tr>
-				<% @Employee.each do |employee| %>
+				<% @employees.each do |employee| %>
 				<div class="row">
 					<tr>
 						<td><%= employee.name %></td>
 						<td><%= employee.user_id %></td>
 						<td class="col-6">
-							<%= link_to 'Show', employee_path(employee)%>
-							<%= link_to 'Edit', edit_employee_path(employee)%>
+							<%= link_to 'Show', employee_path(employee),class:'btn btn-success w-25'%>
+							<%= link_to 'Edit', edit_employee_path(employee),class:'btn btn-success w-25'%>
 						</tr>
 					</div>
 					<% end %>
@@ -24,4 +26,4 @@
 				</table>
 			</div>  
 		</div>
-
+</div>
