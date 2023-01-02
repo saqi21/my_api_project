@@ -40,11 +40,20 @@ class ProcessAttendance
     current_attendance
   end
 
-  # def get punctuality_points(from, to)
-  #   points_table = {}
-  #   self.users.each do |user|
-  #     self.attendance_logs.each
-  #   end
-  # end
+  def punctuality_points(from, to)
+    points_table = {}
+    self.users.each do |user|
+      attendance_during(from, to).each do |at|
+        if at['user_id'] == user['user_id']
+          if points_table[user['name']].class?(Integer)
+            points_table[user['name']] += 1
+          else
+            points_table[user['name']] = 0
+          end 
+        end
+      end
+    end
+    points_table
+  end
 
 end
