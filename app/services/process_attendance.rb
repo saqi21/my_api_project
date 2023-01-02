@@ -9,10 +9,21 @@ class ProcessAttendance
 	end
 
 	def get_admins
-    $employee.each do |emp|
-      if $employee["privilege"]==14
-          puts "okookokokokok	"
-      end
+    admins = []
+    self.users.each do |u|
+      admins.append(u) if u['privilege'] == 14
     end
+    admins
 	end
+
+  def get_employees
+    employees = []
+    self.users.each do |u|
+      employees.append(u) if u['privilege'] == 14
+    end
+    employees
+	end
+
+  
+
 end

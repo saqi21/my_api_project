@@ -13,11 +13,8 @@ class GktecoClient
         request = Net::HTTP::Get.new(@url)
         http = Net::HTTP.new(@url.host, @url.port);
         token = JWT.encode({'admin': 'devsloop'},key)
-        begin 
-            request["Authorization"] = "Bearer #{token}"
-        rescue exception
-            return exception
-        end
+        request["Authorization"] = "Bearer #{token}"
+
         response = http.request(request)
         response.read_body
     end
