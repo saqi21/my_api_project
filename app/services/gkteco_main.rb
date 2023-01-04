@@ -15,8 +15,8 @@ class GktecoMain
 	end
 
 	def generate_attendances
-		attendance.each do |attendance|
-			 c = Attendance.find_or_create_by(user_id: attendance["user_id"], timestamp: attendance["timestamp"], status: attendance["status"], punch: attendance["punch"])
+		attendance.each do |at|
+			 c = Attendance.find_or_create_by(user_id: at["user_id"], timestamp: at["timestamp"], status: at["status"], punch: at["punch"])
 			 c.save
 		end
 	end
