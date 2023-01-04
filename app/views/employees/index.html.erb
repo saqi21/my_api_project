@@ -9,16 +9,15 @@
 				<tr>
 					<th>ID</th>
 					<th>Employees Name</th>
-					<th>Actions</th>
+					
+					
 				</tr>
 				<% @employees.each do |employee| %>
 				<div class="row">
 					<tr>
-						<td><%= employee.name %></td>
 						<td><%= employee.user_id %></td>
-						<td class="col-6">
-							<%= link_to 'Show', employee_path(employee),class:'btn btn-success w-25'%>
-							<%= link_to 'Edit', edit_employee_path(employee),class:'btn btn-success w-25'%>
+						<td><%= employee.name %></td>
+						
 						</tr>
 					</div>
 					<% end %>
