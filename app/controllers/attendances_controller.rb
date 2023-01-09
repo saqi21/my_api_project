@@ -3,7 +3,7 @@ class AttendancesController < ApplicationController
  
   def index
     @q = Attendance.where(user_id: params[:employee_id]).ransack(params[:q])
-    @attendances = @q.result(distinct: true).order(timestamp: :desc)
+    @attendances = @q.result(distinct: true).order(timestamp: :desc).page(params[:page])
   end
 
   private

@@ -19,28 +19,29 @@
 		<h3 style="text-align: center;"><%= @employee.name%></h3>
 		<div>
 			<table class="table table-striped">
-			<tr>
-			<th>Time</th>
-			<th>Status</th>
-			<th>Punch</th>
-			<th>Point</th>
-
-			</tr>
-			<% @attendances.each do |attendance| %>
-		
-			<div class="row">
 				<tr>
-					<td><%= attendance.timestamp %></td>
-					<td><%= attendance.status %></td>
-					<td><%= attendance.punch %></td>
-					<td><%= attendance.point %></td>
+					<th>Time</th>
+					<th>Status</th>
+					<th>Punch</th>
+					<th>Point</th>
 
 				</tr>
-			</div>
-			<% end %>
+				<% @attendances.each do |attendance| %>
+				
+				<div class="row">
+					<tr>
+						<td><%= attendance.timestamp %></td>
+						<td><%= attendance.status %></td>
+						<td><%= attendance.punch %></td>
+						<td><%= attendance.point %></td>
+
+					</tr>
+				</div>
+				<% end %>
 			</table>
 		</div>  
 	</div>
+	<%= paginate @attendances %>
 </div>
 <div class="container">
 	<%=link_to "Back", employees_path, class: "btn btn-primary"%>

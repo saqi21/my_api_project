@@ -57,3 +57,4 @@ gem 'jwt'
 gem 'whenever'
 gem "sidekiq", "~> 7.0"
 gem 'ransack'
+gem 'kaminari'

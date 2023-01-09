@@ -21,10 +21,6 @@ class GktecoMain
 		end
 	end
 
-	def get_attendance(user_id)
-		attendance.select { |attendance| attendance['user_id'] == user_id }
-	end
-
 	private
 
 	def client

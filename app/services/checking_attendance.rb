@@ -16,6 +16,7 @@ class CheckingAttendance
        attendance.update(point: point)
      end
    end
+
  end
 
  private
@@ -24,16 +25,10 @@ class CheckingAttendance
   today = Date.today
 
   @attendances ||= Attendance.where(user_id: @attendance['user_id'], timestamp: today.beginning_of_day..today.end_of_day)
-end
+ end
 
-def create
-#  if @attendance['punch'] == 0
-#   Attendance.find_or_create_by(user_id: @attendance["user_id"], timestamp: @attendance["timestamp"], status: @attendance["status"], punch: @attendance["punch"])
-# else
-#   Attendance.find(user_id: @attendance["user_id"])
-
-# end
-# end
-Attendance.find_or_create_by(user_id: @attendance["user_id"], timestamp: @attendance["timestamp"], status: @attendance["status"], punch: @attendance["punch"])
+  def create
+    Attendance.find_or_create_by(user_id: @attendance["user_id"], timestamp: @attendance["timestamp"], status: @attendance["status"], punch: @attendance["punch"])
+  end
 
 end
