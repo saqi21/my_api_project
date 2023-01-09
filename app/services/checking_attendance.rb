@@ -27,12 +27,13 @@ class CheckingAttendance
 end
 
 def create
- if @attendance['punch'] == 0
-  Attendance.find_or_create_by(user_id: @attendance["user_id"], timestamp: @attendance["timestamp"], status: @attendance["status"], punch: @attendance["punch"])
-else
-  Attendance.create(user_id: @attendance["user_id"])
+#  if @attendance['punch'] == 0
+#   Attendance.find_or_create_by(user_id: @attendance["user_id"], timestamp: @attendance["timestamp"], status: @attendance["status"], punch: @attendance["punch"])
+# else
+#   Attendance.find(user_id: @attendance["user_id"])
 
-end
-end
+# end
+# end
+Attendance.find_or_create_by(user_id: @attendance["user_id"], timestamp: @attendance["timestamp"], status: @attendance["status"], punch: @attendance["punch"])
 
 end
