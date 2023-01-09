@@ -1,21 +1,25 @@
 <div class="m-5">
 	<div class="table-responsive bg-white rounded border border-success p-2">
 		<div >
-			<h1 class="text-center">Attendance</h1>
+			<h1 class="text-center">Attendances</h1>
 		</div>
-		<%= search_form_for @q, url: employee_attendances_path(@employee.user_id) do |form| %>
-		<div class="form-group">
-			<%= form.label :from%>
-			<%= form.datetime_field :timestamp_gteq %>
+		<div class="m-3">
+			<%= search_form_for @q, url: employee_attendances_path(@employee.user_id) do |form| %>
+			<div class="row">
+				<div class="col-3">
+					<label>From</label>
+					<%= form.date_field :timestamp_gteq %>
+				</div>
+				<div class="col-3">
+					<label>To</label>
+					<%= form.date_field :timestamp_lteq %>
+				</div>
+				<div class="col-3">
+					<%= form.submit class: "btn btn-primary btn-sm"%>
+				</div>
+			</div>
+			<% end %>
 		</div>
-		<div class="form-group">
-			<%= form.label :to%>
-			<%= form.datetime_field :timestamp_lteq %>
-		</div>
-		<div class="form-group">
-			<%= form.submit class: "btn btn-primary btn-sm"%>
-		</div>
-		<% end %>
 		<h3 style="text-align: center;"><%= @employee.name%></h3>
 		<div>
 			<table class="table table-striped">
@@ -27,7 +31,7 @@
 
 				</tr>
 				<% @attendances.each do |attendance| %>
-				
+
 				<div class="row">
 					<tr>
 						<td><%= attendance.timestamp %></td>
@@ -41,8 +45,11 @@
 			</table>
 		</div>  
 	</div>
-	<%= paginate @attendances %>
+	<div class="m-2">
+		<%= paginate @attendances%>
+	</div>
+	<div class="container">
+		<%=link_to "Back", employees_path, class: "btn btn-primary"%>
+	</div>
 </div>
-<div class="container">
-	<%=link_to "Back", employees_path, class: "btn btn-primary"%>
-</div>
+
