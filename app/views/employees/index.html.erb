@@ -1,27 +1,27 @@
 <div class="m-5">
 		<div class="table-responsive bg-white rounded border border-success p-2">
 		<div >
-			<h1 class="text-center">Emoloyess</h1>
+			<h1 class="text-center">Employess</h1>
+		</div>
+		<div class="container">
+			<%= link_to "syncEmployees", sync_empolyees_path, method: "post", class: "btn btn-primary"%> |
+			<%= link_to "syncAttendances", sync_attendance_path, method: "post", class: "btn btn-primary"%>
 		</div>
 
 		<div>
 			<table class="table table-striped">
 				<tr>
-					<th>ID</th>
 					<th>Employees Name</th>
-					
-					
+					<th>Action</th>
 				</tr>
 				<% @employees.each do |employee| %>
 				<div class="row">
 					<tr>
-						<td><%= employee.user_id %></td>
 						<td><%= employee.name %></td>
-						
+						<td><%=link_to "show", employee_attendances_path(employee.user_id) ,class:"btn btn-primary"%></td>
 						</tr>
 					</div>
 					<% end %>
-
 				</table>
 			</div>  
 		</div>

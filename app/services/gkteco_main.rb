@@ -1,5 +1,6 @@
 require "json"
 class GktecoMain
+
 	def users
 		data['users']
 	end
@@ -16,9 +17,12 @@ class GktecoMain
 
 	def generate_attendances
 		attendance.each do |at|
-			 c = Attendance.find_or_create_by(user_id: at["user_id"], timestamp: at["timestamp"], status: at["status"], punch: at["punch"])
-			 c.save
+			CheckingAttendance.new(at).call
 		end
+	end
+
+	def get_attendance(user_id)
+		attendance.select { |attendance| attendance['user_id'] == user_id }
 	end
 
 	private
@@ -30,4 +34,5 @@ class GktecoMain
 	def data
 		@data ||= JSON.parse(client.fetch('devsloop')).to_hash
 	end
+
 end

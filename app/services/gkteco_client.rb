@@ -16,6 +16,7 @@ class GktecoClient
         request["Authorization"] = "Bearer #{token}"
 
         response = http.request(request)
+        (Synchronization.last || Synchronization.create).update(last_sync: DateTime.now)
         response.read_body
     end
 end   

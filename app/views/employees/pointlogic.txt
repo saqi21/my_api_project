@@ -1,0 +1,60 @@
+final logic
+	if at['punch']==0 && at['timestamp'].to_datetime.hour <= 11 && at['timestamp'].to_datetime.min <=25
+				ppoints =1
+				@emp = Employee.find_by(user_id: at['user_id'])
+				pp = @emp.point
+				pp += ppoints
+				@emp.update(point: pp)			
+			end
+				if at['punch']==0 && at['timestamp'].to_datetime.hour > 11
+				ppoints =1
+				@emp = Employee.find_by(user_id: at['user_id'])
+				pp = @emp.point
+				pp -= ppoints
+				@emp.update(point: pp)			
+			end
+
+
+
+
+at['user_id']== at2['user_id'] && at['punch'].zero && at2['punch'].zero && at['timestamp'].to_datetime.year == at2['timestamp'].to_datetime.year &&
+					at['timestamp'].to_datetime.month == at2['timestamp'].to_datetime.month && at['timestamp'].to_datetime.day == at2['timestamp'].to_datetime.day && 
+					at['timestamp'].to_datetime.hour <=11 && at2['timestamp'].to_datetime.hour &&
+					at['timestamp'].to_datetime.min <=15 && at['timestamp'].to_datetime.min <=15 
+
+
+
+
+
+
+
+
+
+
+				ppoints = 0
+		if at['punch']==0 && at['timestamp'].to_datetime.hour <= 11 && at['timestamp'].to_datetime.min <=25
+				 ppoints =1
+			end
+			@emloyee = Employee.find_by(user_id: at["user_id"])
+			epoints = @employee.point
+			epoints = epoints + ppoints
+
+			@employee.update(point: epoints)	
+
+			if at['punch']==1{
+			#do nothing
+			}
+
+
+
+
+			if
+
+
+
+
+new table of timestamp{
+	timestamp
+	point
+	user_id
+}

@@ -56,3 +56,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'jwt'
 gem 'whenever'
 gem "sidekiq", "~> 7.0"
+gem 'ransack'
