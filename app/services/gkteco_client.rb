@@ -12,13 +12,10 @@ class GktecoClient
   def fetch(key)
     request = Net::HTTP::Get.new(@url)
     http = Net::HTTP.new(@url.host, @url.port);
-    token = JWT.encode({'admin': 'devsloop'},key)
+    token = JWT.encode({'admin': 'devsloop'}, key)
     request["Authorization"] = "Bearer #{token}"
-
     response = http.request(request)
     (Synchronization.last || Synchronization.create).update(last_sync: DateTime.now)
     response.read_body
   end
-end   
-
-#puts GktecoClient.new.fetch('devsloop')
+end

@@ -1,6 +1,5 @@
 require "json"
 class GktecoMain
-
 	def users
 		data['users']
 	end
@@ -22,13 +21,8 @@ class GktecoMain
 	end
 
 	private
-
-	def client
-		GktecoClient.new
-	end
-
 	def data
-		@data ||= JSON.parse(client.fetch('devsloop')).to_hash
+		@data ||= JSON.parse(GktecoClient.new.fetch('devsloop')).to_hash
 	end
 
 end

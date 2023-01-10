@@ -1,14 +1,26 @@
 class SyncronizeController < ApplicationController
 
   def sync_employees
-    GktecoMain.new.generate_employees
-    flash[:notice] = " Employees Are Synced Successfully"
-    redirect_to employees_path
+    begin
+      GktecoMain.new.generate_employees
+      flash[:notice] = " Employees Are Synced Successfully"
+    rescue Errno::ECONNREFUSED => e
+      flash[:notice] = "Connection refused to localhost:8000."  
+    rescue NoMethodError => e
+      flash[:notice] = "Unable to Connect to the machine"
+    end
+   redirect_to employees_path
   end
 
   def sync_attendance
-    GktecoMain.new.generate_attendances
-    flash[:notice] = "Successfully Aynced Attendances"
+    begin
+      GktecoMain.new.generate_attendances
+      flash[:notice] = "Successfully Synced Attendances"
+    rescue Errno::ECONNREFUSED => e
+      flash[:notice] = "Connection refused to localhost:8000."
+    rescue NoMethodError => e
+      flash[:notice] = "Unable to Connect to the machine"
+    end
     redirect_to employees_path
   end
 end

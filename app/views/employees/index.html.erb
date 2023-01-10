@@ -5,14 +5,14 @@
 			<h1 class="text-center">Employess</h1>
 		</div>
 		<div class="container m-3">
-			<%= link_to "syncEmployees", sync_empolyees_path, method: "post", class: "btn btn-primary"%> |
-			<%= link_to "syncAttendances", sync_attendance_path, method: "post", class: "btn btn-primary"%>
+			<%= link_to "Load Employees", sync_empolyees_path, method: "post", class: "btn btn-primary"%> |
+			<%= link_to "Load Attendances", sync_attendance_path, method: "post", class: "btn btn-primary"%>
 		</div>
 
 		<div>
 			<table class="table table-striped">
 				<tr>
-					<th>ID#</th>
+					<th>Device ID</th>
 					<th>Employees Name</th>
 					<th>Action</th>
 				</tr>
